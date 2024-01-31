@@ -1,0 +1,13 @@
+h1{
+    font-style: italic;
+}
+/* nav section css */
+.nav_section{
+    background-color: aqua;
+}
+
+#navbarNav{
+    /* padding-left: 30%; */
+    display: flex;
+    justify-content: end;
+}

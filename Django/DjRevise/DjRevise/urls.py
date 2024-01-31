@@ -1,5 +1,5 @@
 """
-URL configuration for DjangoPrac project.
+URL configuration for DjRevise project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -15,12 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from posting import views as user_posting_view
+from django.urls import path
+from post import views as post_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('posting.urls'))
-    path('',user_posting_view.home, name= 'post_home'),
-    path('about/',user_posting_view.about, name='post_about'),
+    path('',post_views.home,name='post_home'),
+    path('about/',post_views.about,name='post_about'),
 ]

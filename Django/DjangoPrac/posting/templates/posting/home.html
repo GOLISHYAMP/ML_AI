@@ -1,16 +1,4 @@
-{%extends 'posting/base.html'%}
+{% extends 'posting/base.html'%}
 {% block content %}
-<div class="container-sm">
-    {% for post in posts %}
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{post.Title}}</h5>
-          <small class="card-text">{{post.Author}}  - posted : {{post.PostedOn}}</small>
-          <p class="card-text">{{post.Description}}</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
-    </div>
-    {% endfor %}
-</div>
+    <h1>Welcome to home page.</h1>
 {% endblock %}
