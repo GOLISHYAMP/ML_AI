@@ -4,17 +4,15 @@
         Hello, Welcome to the home page.
     </h1>
     <div>
-        <!-- 'Author':"Vinod Sarwade",
-        'PostedOn':"Jan 15, 2024",
-        'Heading':"BUY 21900 PE Nifty50",
-        'Description' -->
+      
         {% for post in posts %}
-        <div>
-            <h2>{{post.Author}}</h2>
-            <small>{{post.PostedOn}}</small>
-            <h3>{{post.Heading}}</h3>
-            <p>{{post.Description}}</p>
-        </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.Heading}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostedOn}}</h6>
+                  <p class="card-text">{{post.Description}}</p>
+                </div>
+              </div>
         {% endfor %}
     </div>
 {% endblock %}
