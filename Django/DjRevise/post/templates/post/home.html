@@ -1,18 +1,55 @@
 {% extends 'post/base.html' %}
 {% block content %}
-    <h1>
-        Hello, Welcome to the home page.
-    </h1>
-    <div>
-      
+
+<div class="cards-section">
+    <div class="container">
+        <div class='display-cards'>
+        <h1>
+            UPDATES
+        </h1>
+        <!-- cards section -->
         {% for post in posts %}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{post.Heading}}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostedOn}}</h6>
-                  <p class="card-text">{{post.Description}}</p>
-                </div>
-              </div>
+        <div class="card my-cards" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{post.Heading}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostedOn}}</h6>
+                <p class="card-text">{{post.Description}}</p>
+            </div>
+        </div>
         {% endfor %}
+        <!-- cards section end -->
     </div>
+    </div>
+    <div class="container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>Smith</td>
+                    <td>jane@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mike</td>
+                    <td>Johnson</td>
+                    <td>mike@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
 {% endblock %}

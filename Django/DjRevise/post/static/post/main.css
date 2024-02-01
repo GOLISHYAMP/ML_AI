@@ -1,9 +1,9 @@
 h1{
-    font-style: italic;
+    font-style:italic;
 }
 /* nav section css */
 .nav_section{
-    background-color: aqua;
+    background-color: rgb(185, 189, 189);
 }
 
 #navbarNav{
@@ -11,3 +11,77 @@ h1{
     display: flex;
     justify-content: end;
 }
+
+.brand-name{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(94, 91, 91);
+    border: 10px rgb(146, 145, 145) solid;
+    border-radius: 30px;
+    background-color: white;
+    padding: 5px;
+}
+
+
+/* nav section css end*/
+
+/* home cards section */
+.card{
+    min-width: 95%;
+}
+
+.my-cards{
+    border: 3px rgb(99, 99, 99) solid;
+    border-radius: 10px;
+    margin: 5px 20px 5px 5px;
+    padding: 5px;
+    background-color: rgb(225, 224, 223);
+}
+
+.my-cards .card-body{
+    width: 100%;
+}
+.my-cards h6{
+    font-size: 15px;
+}
+/* .my-cards h6::after{
+    content: none;
+    background-color: black;
+    height: 3px;
+    width: 3px;
+} */
+
+.cards-section{
+    display: flex;
+    justify-content: center;
+}
+
+.cards-section .container{
+    /* border-right: 2px black solid; */
+    border-radius: 10px;
+
+}
+
+.cards-section .container .display-cards{
+    border-right: 2px black solid;
+}
+
+
+/* home cards section end*/
+
+/* table section */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+/* table section end*/
+
