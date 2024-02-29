@@ -12,7 +12,8 @@
         <div class="card my-cards" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{post.Heading}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostedOn}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostOn| date:"M d, Y"}}</h6>
+                <!-- {{ post.date_posted| date:"M d, Y" }} -->
                 <p class="card-text">{{post.Description}}</p>
             </div>
         </div>
