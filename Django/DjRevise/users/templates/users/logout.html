@@ -1,0 +1,11 @@
+{% extends 'post/base.html' %}
+{% block content %}
+    <!-- <h2 style="background-color: green; border: 3px solid darkgreen;" >You have been successfully logged out</h1> -->
+    <h2>Logged out</h2>
+<h3>Thanks for spending some quality time with the web site today.</h3>
+ <div>
+    <a href="{% url 'user_login' %}">Log in again</a>
+ </div>
+
+{% endblock %}
+

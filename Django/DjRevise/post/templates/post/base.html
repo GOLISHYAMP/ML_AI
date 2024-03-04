@@ -18,7 +18,7 @@
     <div class="nav_section">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand brand-name" href="#">
+        <a class="navbar-brand brand-name" href="{% url 'post_home' %}">
           <img src="{% static 'post/logo3.jpg' %}" alt="" width="40" height="40" class="d-inline-block align-text-top ">
           TradeFreak
         </a>
@@ -26,26 +26,48 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_about' %}">About</a>
+            </li>         
+          </ul>
           <ul class="navbar-nav">
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="{% url 'user_profile' %}">profile</a>
+            </li>
+            <form method="post" action="{% url 'user_logout' %}">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_register' %}">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="{% url 'user_login' %}">Login</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+            {% endif %}
+            
           </ul>
         </div>
       </div>
     </nav>
   </div>
+    {%if messages %}
+    {% for message in messages%}
+    <div class="alert alert-{{message.tags}}">
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% block content %}
     {% endblock %}
+   
+  
         <!-- added bootstrap -->
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

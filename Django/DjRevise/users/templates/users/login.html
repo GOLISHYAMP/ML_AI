@@ -1,6 +1,23 @@
 {% extends 'post/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1>
-        Here comes the User Login form.
-    </h1>
+<h2 style="text-align: center;">Login</h2>
+   <div  class="container" id="whole_reg_page">
+        
+        <div  class="form_container">
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{form|crispy}}
+            </fieldset>
+            <div class=" container">
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+            <div class="container">
+                Not have an account? <a href="{% url 'user_register' %}">SignUp</a>
+            </div>
+        </form>
+    </div>
+   </div>
 {% endblock %}

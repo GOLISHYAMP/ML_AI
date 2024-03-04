@@ -1,8 +1,11 @@
 {% extends 'post/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-   <div class="container">
-        <h2>Registration Form</h2>
+<h2 style="text-align: center;">Registration Form</h2>
+   <div  class="container" id="whole_reg_page">
+        
+        <div  class="form_container">
+
         <form method="POST">
             {% csrf_token %}
             <fieldset>
@@ -12,8 +15,9 @@
                 <button class="btn btn-outline-info" type="submit">Submit</button>
             </div>
             <div class="container">
-                Already have an account? <a href="#">Login</a>
+                Already have an account? <a href="{% url 'user_login' %}">Login</a>
             </div>
         </form>
+    </div>
    </div>
 {% endblock %}
