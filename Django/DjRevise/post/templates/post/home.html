@@ -11,8 +11,15 @@
         {% for post in posts %}
         <div class="card my-cards" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">{{post.Heading}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{post.Author}} -{{post.PostOn| date:"M d, Y"}}</h6>
+                <div class="d-flex">
+                    <img class="rounded-circle account-img img-fluid custom-image" src="{{post.Author.profile.image.url}}" alt="">
+                <h2 style="margin-left: 10px; ">{{post.Author}}</h2>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="card-title">{{post.Heading}}</h3>
+                    <h6 class="card-subtitle mb-2 text-muted"> -{{post.PostOn}}</h6>
+                </div>
+                
                 <!-- {{ post.date_posted| date:"M d, Y" }} -->
                 <p class="card-text">{{post.Description}}</p>
             </div>
