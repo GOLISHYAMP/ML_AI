@@ -1,0 +1,21 @@
+{% extends 'post/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2 style="text-align: center;">New Post</h2>
+   <div  class="container" id="whole_reg_page">
+        
+        <div  class="form_container">
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{form|crispy}}
+            </fieldset>
+            <div class=" container">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+            
+        </form>
+    </div>
+   </div>
+{% endblock %}
