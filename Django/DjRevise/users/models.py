@@ -4,6 +4,8 @@ from PIL import Image
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
+    # if the user do not enter any image then this default.jpg in the media folder will be show 
+    # if the user give the pic then it will be stored in the profile_pic folder inside media folder
     image = models.ImageField(default='default.jpg', upload_to = 'profile_pic' )
 
     def __str__(self):

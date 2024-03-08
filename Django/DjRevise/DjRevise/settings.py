@@ -140,6 +140,7 @@ LOGIN_REDIRECT_URL = 'post_home'
 # accessed only after successful authentication then this page will be shown.
 LOGIN_URL = 'user_login'
 
+# this says django to store the images in this folder.
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
