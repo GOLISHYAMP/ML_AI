@@ -5,10 +5,11 @@ from django.urls import reverse
 
 class Post(models.Model):
     Heading = models.CharField(max_length=100)
-    Author = models.ForeignKey(User,on_delete = models.CASCADE)
-    PostOn = models.DateTimeField(default=timezone.now)
+    Author = models.ForeignKey(User,on_delete = models.CASCADE)  # here we have used User as a foriegn key and models.CASCADE as when we delete the user the related posts should also be deleted.
+    PostOn = models.DateTimeField(default=timezone.now) # There are many ways to send as parameter to datetime field, but i particularly used this one so that the time and date will be updated each time the data is updated.
     Description = models.TextField()
 
+    # this will return the heading of the post when you print the objects.
     def __str__(self) -> str:
         return self.Heading
     

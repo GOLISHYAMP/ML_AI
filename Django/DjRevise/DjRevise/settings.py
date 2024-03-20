@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'post.apps.PostConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
+    'crispy_forms',   #crispy_forms and crispy_bootstrap4 is used to use the crispy forms and this crispy forms are only available for bootstrap version 4.
     "crispy_bootstrap4",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,6 +130,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# From here I added extra in this setting file
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

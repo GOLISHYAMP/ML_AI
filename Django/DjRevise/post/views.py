@@ -6,8 +6,8 @@ from .models import Post
 from django.views.generic import (ListView,
                                    DetailView,
                                      CreateView,
-                                     UpdateView,
-                                     DeleteView)
+                                       UpdateView,
+                                          DeleteView)
 
 
 # this below class help to stop the unauthorized access of the user without login for the class views, just like loginrequied decarotors for the function views.
