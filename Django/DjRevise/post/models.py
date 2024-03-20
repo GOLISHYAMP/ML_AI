@@ -16,4 +16,10 @@ class Post(models.Model):
         return reverse("post_detail", kwargs={'pk': self.pk})
         # return reverse('post_home')
 
+    def save(self, *args, **kwargs):
+        # Update PostOn only if the post is being edited and not newly created
+        if self.pk:
+            self.PostOn = timezone.now()
+        super().save(*args, **kwargs)
+
 
