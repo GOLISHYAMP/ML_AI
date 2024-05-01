@@ -1,0 +1,16 @@
+{% extends 'blog/base.html'%}
+
+{% block content %}
+<h1>Welcome to home page.</h1>
+{% if posts %}
+    {% for post in posts %}
+        <h1>id = {{post.id}}</h1>
+        <h2>title = {{post.title}}</h2>
+        <h2>author = {{post.author.username}}</h2>
+        <h4>posted_on = {{post.posted_on|date:"F d, Y"}}</h4>
+        <h3>content = {{post.content}}</h3>
+    {% endfor %}
+{% else %}
+<h3>No posts found</h3>
+{% endif %}
+{% endblock %}
