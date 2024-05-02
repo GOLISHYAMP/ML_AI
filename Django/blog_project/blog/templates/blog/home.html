@@ -1,6 +1,11 @@
 {% extends 'blog/base.html'%}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <h2 style="background-color: lightgreen; color: green;">{{message}}</h2>
+    {% endfor %}
+{% endif %}
 <h1>Welcome to home page.</h1>
 {% if posts %}
     {% for post in posts %}
