@@ -14,6 +14,42 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="{% url 'blog_home'%}">MySITE</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'blog_home'%}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog_about' %}">About</a>
+              </li>
+            
+            {% if user.is_authenticated%}
+                <li class="nav-item">
+                    <form method="post" action="{% url 'user_logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                      </form>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
+                </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_register' %}">Register</a>
+              </li>
+            {% endif %}
+          </ul>
+          
+        </div>
+      </nav>
     {% block content %}
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
