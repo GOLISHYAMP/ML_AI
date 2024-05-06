@@ -1,20 +1,20 @@
 {% extends 'blog/base.html'%}
 
 {% block content %}
-{% if messages %}
-    {% for message in messages %}
-        <h2 style="background-color: lightgreen; color: green;">{{message}}</h2>
-    {% endfor %}
-{% endif %}
-<h1>Welcome to home page.</h1>
+
 {% if posts %}
-    {% for post in posts %}
-        <h1>id = {{post.id}}</h1>
-        <h2>title = {{post.title}}</h2>
-        <h2>author = {{post.author.username}}</h2>
-        <h4>posted_on = {{post.posted_on|date:"F d, Y"}}</h4>
-        <h3>content = {{post.content}}</h3>
-    {% endfor %}
+{% for post in posts %}
+<div class="card" style="width: 40rem; margin: 1%; border: solid black 3px;">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            <div style="display: flex; justify-content: space-between;"><a href="{% url 'user_profile' %}" class="card-link">{{post.author.username}}</a><p style="font-size: smaller;" > -Posted on
+            : {{post.posted_on|date:"F d, Y"}}</p></div></h6>
+        <p class="card-text">{{post.content}}</p>
+
+    </div>
+</div>
+{% endfor %}
 {% else %}
 <h3>No posts found</h3>
 {% endif %}
