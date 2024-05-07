@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.views.generic import ListView, DetailView
 
 # posts = [
 #     {
@@ -20,16 +21,25 @@ from .models import Post
 # ]
 
 # Create your views here.
-def home(request):
-    context1 = {
-        'posts': Post.objects.all()
-    }
-    context2 = {
-       'title':'home'
-       }
-    combined_context = {**context1, **context2}
-    # print(combined_context)
-    return render(request, 'blog/home.html',context = combined_context)
+# def home(request):
+#     context1 = {
+#         'posts': Post.objects.all()
+#     }
+#     context2 = {
+#        'title':'home'
+#        }
+#     combined_context = {**context1, **context2}
+#     # print(combined_context)
+#     return render(request, 'blog/home.html',context = combined_context)
+
+class Post_ListView(ListView):
+    model = Post 
+    template_name = 'blog/home.html'
+    context_object_name = 'posts'
+    ordering = ['-posted_on']
+
+class Post_DetailView(DetailView):
+    model = Post
 
 def about(request):
     return render(request, 'blog/about.html', {'title':"About"},)
