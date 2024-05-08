@@ -7,9 +7,9 @@
 <div class="card" style="width: 40rem; margin: 1%; border: solid black 3px;">
     <div class="card-body">
         <div style="display: flex; justify-content: flex-start;">
-            <img style="border-radius: 20px; height: 50%; width: 20%;" src="{{user.profile.profile_pic.url}}" alt="profile_pic">
+            <img style="border-radius: 20px; height: 50%; width: 20%;" src="{{post.author.profile.profile_pic.url}}" alt="profile_pic">
             <div style="width: 80%">
-                <h5 class="card-title"><a href="{% url 'Detail_blog' post.id %}">{{post.title}}</a></h5>
+                <h5 class="card-title"><a href="{% url 'detail_blog' post.id %}">{{post.title}}</a></h5>
                 <h6 class="card-subtitle mb-2 text-muted">
                     <div style="display: flex;">
                         <a href="{% url 'user_profile' %}" class="card-link">{{post.author.username}}</a>

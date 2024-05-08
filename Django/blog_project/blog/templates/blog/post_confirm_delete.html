@@ -1,0 +1,12 @@
+{% extends 'blog/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h4>Do you really want to delete {{object.title}} post?</h4>
+    </fieldset>
+    <button type="submit" style="color: red;">Yes Delete</button>
+    <button><a href="{% url 'detail_blog' object.id %}">Cancel</a></button>
+</form>
+{% endblock %}

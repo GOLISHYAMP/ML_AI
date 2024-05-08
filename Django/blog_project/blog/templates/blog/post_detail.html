@@ -1,31 +1,17 @@
 {% extends 'blog/base.html'%}
 
 {% block content %}
-<!-- 
-<div class="card" style="width: 40rem; margin: 1%; border: solid black 3px;">
-    <div class="card-body">
-        <div style="display: flex; justify-content: flex-start;">
-            <img style="border-radius: 20px; height: 50%; width: 20%;" src="{{user.profile.profile_pic.url}}" alt="profile_pic">
-            <div style="width: 80%">
-                <h5 class="card-title"><a href="{% url 'Detail_blog' post.id %}">{{post.title}}</a></h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                    <div style="display: flex;">
-                        <a href="{% url 'user_profile' %}" class="card-link">{{post.author.username}}</a>
-                        <p style="font-size: smaller; margin-left: 30%;"> -Posted on : {{post.posted_on|date:"F d, Y"}}</p>
-                    </div>
-                </h6>
-            </div>
-        </div>
-        <p class="card-text">{{post.content}}</p>
 
-    </div>
-</div> -->
 <div class="card" style="width: 18rem; border: solid black 4px; margin-left: 1%; margin-top: 1%;">
-    <img src="{{user.profile.profile_pic.url}}" class="card-img-top" alt="...">
+    <img src="{{object.author.profile.profile_pic.url}}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{post.title}}</h5>
-      <p class="card-text">{{post.author.username}}  -Posted on : {{post.posted_on|date:"F d, Y"}}</p>
-      <p class="card-text">{{post.content}}</p>
+        <div style="display: flex; justify-content: space-around;">
+      <h5 class="card-title" style="font-size: x-large;">{{object.title}}</h5>
+      <a href="{%url 'update_blog' object.id %}"><i class="edit icon" style="color: grey;"></i></a>
+      <a href="{%url 'delete_blog' object.id %}"><i class="delete icon" style="color: red;"></i></a>
+    </div>
+      <p class="card-text">{{object.author.username}}  -Posted on : {{object.posted_on|date:"F d, Y"}}</p>
+      <p class="card-text">{{object.content}}</p>
 
     </div>
     

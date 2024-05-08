@@ -1,6 +1,14 @@
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import (
+    ListView,
+      DetailView,
+        CreateView,
+            UpdateView,
+                DeleteView)
 
 # posts = [
 #     {
@@ -40,6 +48,40 @@ class Post_ListView(ListView):
 
 class Post_DetailView(DetailView):
     model = Post
+
+class Post_CreateView(LoginRequiredMixin,CreateView):
+    model = Post 
+    fields = ['title', 'content']
+    # success_url = '/'       This can be uncomment if we want to visit the home page after post created
+    # template_name = 'blog/home.html'
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+class Post_UpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'content']
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if post.author == self.request.user:
+            return True
+        return False
+   
+   
+class Post_DeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
+    model = Post
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if post.author == self.request.user:
+            return True
+        return False
 
 def about(request):
     return render(request, 'blog/about.html', {'title':"About"},)
