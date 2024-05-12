@@ -1,6 +1,8 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
@@ -9,6 +11,8 @@ from django.views.generic import (
         CreateView,
             UpdateView,
                 DeleteView)
+from django.core.paginator import Paginator
+from django.contrib.auth.models import User
 
 # posts = [
 #     {
@@ -45,6 +49,18 @@ class Post_ListView(ListView):
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-posted_on']
+    paginate_by = 2
+
+class UserPost_ListView(ListView):
+    model = Post 
+    template_name = 'blog/user_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 2
+    def get_queryset(self):
+        user =  get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author = user).order_by('-posted_on')
+
+
 
 class Post_DetailView(DetailView):
     model = Post

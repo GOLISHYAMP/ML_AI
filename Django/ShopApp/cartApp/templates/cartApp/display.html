@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <H2>display page</H2>
+    {% if not request.COOKIES %}
+        <h3>NO ITEMS ADDED</h3>
+            
+    {% else %}
+            {% for name,quantity in request.COOKIES.items %}
+                {% if name != 'csrftoken' %}
+                    <h2>{{name}} : {{quantity}}</h2> 
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+</body>
+
+</html>

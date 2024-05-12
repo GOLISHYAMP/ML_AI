@@ -13,7 +13,7 @@
       <li class="list-group-item">Email: {{user.email}}</li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
+      <a href="{% url 'user_posts' user.username %}" class="card-link">POSTS</a>
       <a href="#" class="card-link">Another link</a>
     </div>
   </div>
