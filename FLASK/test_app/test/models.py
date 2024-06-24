@@ -19,4 +19,6 @@ class UserPersonal(db.Model):
     email = db.Column(db.String(120), nullable = False, unique = True)
     createdOn = db.Column(db.DateTime, nullable = False, default = datetime.now)
     changedOn = db.Column(db.DateTime, nullable = False, default = datetime.now)
-    
+
+
+    # updated
