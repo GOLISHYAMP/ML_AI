@@ -14,11 +14,15 @@ app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 # creating the instance of the database
 db = SQLAlchemy(app)
+# For encrpting the password fields
 bcrypt = Bcrypt(app)
+# For managing the login related things
 login_manager = LoginManager(app)
+# to enable CROSS ORIGIN RESOURCE SHARING
 CORS(app)
 # if access unauthorized page then redirect to login page
 login_manager.login_view = 'login' # it is a function name of route
+# To set the category of the message if raise by the login manager
 login_manager.login_message_category = 'info'
 
 from flaskblog import routes

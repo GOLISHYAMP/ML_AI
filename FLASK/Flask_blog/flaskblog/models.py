@@ -1,9 +1,11 @@
 from flaskblog import db, login_manager
 from datetime import datetime
 from flask_login import UserMixin
-# now this Usermixin extension have the is_authenticated, is_active ,
+# now this UserMixin extension have the is_authenticated, is_active ,
 #  is_anonymous, get_id
 
+# This description is given in the readme file
+# Basically it is used by the login manager to find to fetch userdata
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
