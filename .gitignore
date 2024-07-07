@@ -5,3 +5,5 @@ MachineLearningPrac/Datasets/creditcard.csv
 .db
 
 __pycache__
+
+FLASK/myflaskenv

@@ -1,16 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
 <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{url_for('static', filename='profile_pics/'+post.author.image_file)}}"
+    <img class="rounded-circle article-img" 
+    src="{{url_for('static', filename='profile_pics/'+post.author.image_file)}}"
         alt="">
     <div class="media-body">
         <div class="article-metadata">
-            <a class="mr-2" href="#">{{ post.author.username }}</a>
-            <small class="text-muted">{{ post.date_posted.strftime("%d-%m-%Y") }}</small>
+            <a class="mr-2" href="{{ url_for('users.user_posts',
+             username = post.author.username)}}">{{ post.author.username }}</a>
+            <small class="text-muted">
+              {{ post.date_posted.strftime("%d-%m-%Y") }}</small>
             {% if post.author == current_user %}
                 <div>
-                    <a class="btn btn-secondary btn-sm m-1" href="{{ url_for('updatepost', post_id = post.id) }}">Update</a>
-                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#dangerModal">Delete</button>
+                    <a class="btn btn-secondary btn-sm m-1" 
+                    href="{{ url_for('posts.updatepost', 
+                    post_id = post.id) }}">Update</a>
+                    <button type="button" class="btn btn-danger btn-sm m-1"
+                     data-toggle="modal" data-target="#dangerModal">Delete</button>
                 </div>
             {% endif %}
         </div>
@@ -22,12 +28,15 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="dangerModal" tabindex="-1" aria-labelledby="dangerModalLabel" aria-hidden="true">
+<div class="modal fade" id="dangerModal" tabindex="-1" 
+aria-labelledby="dangerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="dangerModalLabel">Want to delete this post?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title" id="dangerModalLabel">
+            Want to delete this post?</h5>
+          <button type="button" class="close" data-dismiss="modal"
+           aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -35,9 +44,11 @@
           {{post.title}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" 
+          data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-danger">Delete</button> -->
-            <form action="{{url_for('deletePost', post_id = post.id)}}" method="POST">
+            <form action="{{url_for('posts.deletePost', post_id = post.id)}}" 
+            method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
