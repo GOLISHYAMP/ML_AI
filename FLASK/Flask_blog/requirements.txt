@@ -8,4 +8,4 @@ flask_cors
 pillow
 flask-mail
 
-Flask-APScheduler
+# Flask-APScheduler

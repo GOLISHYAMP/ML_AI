@@ -1,6 +1,8 @@
 MachineLearningPrac/Datasets/creditcard.csv
 
-*env
+*env/
+MachineLearningPrac/MLenv/
+Django/django_env/
 
 .db
 
