@@ -4,8 +4,8 @@ class Config():
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 465
     MAIL_USE_SSL = True
-    MAIL_USERNAME = 'sgaltra31@gmail.com'
-    MAIL_PASSWORD = 'weuznndxchqgtspy'
+    MAIL_USERNAME = ''  # your email address
+    MAIL_PASSWORD = ''  # your password
     SCHEDULER_API_ENABLED = True
 
     
