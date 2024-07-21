@@ -7,5 +7,5 @@ flask_login
 flask_cors
 pillow
 flask-mail
-
+flask_wtf
 Flask-APScheduler
