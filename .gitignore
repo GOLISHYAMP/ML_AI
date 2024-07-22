@@ -4,9 +4,9 @@ MachineLearningPrac/Datasets/creditcard.csv
 MachineLearningPrac/MLenv/
 Django/django_env/
 
-.db
+.db/
 
 __pycache__
 
-FLASK/myflaskenv
-FLASK/TradeApp
+FLASK/myflaskenv/
+FLASK/TradeApp/
